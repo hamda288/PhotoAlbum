@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add a picture</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <nav class="navbar navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'gallery' %}">PhotoShare</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">View Pictures</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a href="{% url 'gallery' %}" class="nav-link active">All</a>
+                    </li>
+                    {% for category in categories%}
+                    <li class="nav-item">
+                      <a href="{% url 'gallery' %}?category={{category.name}}" class="nav-link active">{{category.name}}</a>
+                    </li>
+                    {% endfor %}
+                    <li class="nav-item">
+                      <a href="{% url 'add' %}" class="btn btn-outline-light">Add picture</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+    <div class="container mt-5">
+        <div class=" row justify-content-center">
+            <div class="col-md-4 mt-5" >
+                <div class="card border-dark border-3">
+                    <div class="card-body">
+                <a href="{% url 'gallery' %}" class="btn btn-dark">Go Back</a>
+                <form method='POST' action="" enctype="multipart/form-data">
+                     {% csrf_token %}
+                <div class="form-group m-3">
+                    <label class="fw-semibold">Description</label>
+                    <input name="description" type="text" placeholder="Enter a description" class="form-control" required>
+                </div>
+
+                <div class="form-group m-3">
+                    <label class="fw-semibold">Select a category</label>
+                    <select name="category" class="form-control">
+                        <option value='none'>Select a category...</option>
+
+                        {% for category in categories%}
+                        <option value='{{category.id}}'>{{category.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group m-3">
+                    <label class="fw-semibold">Create a new category</label>
+                    <input name="newCategory" type="text" class="form-control" placeholder="Create new category">
+                </div>
+
+                <div class="form-group m-3">
+                    <label class="fw-semibold">Upload Image</label>
+                    <input name="image" type="file" class="form-control-file" required>
+                </div>
+
+                <button type="submit" class="btn btn-warning"  style="--bs-btn-padding-y: .9rem; --bs-btn-padding-x: 10.2rem; --bs-btn-font-size: 5 rem;">Submit</button>
+
+            </div>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>
