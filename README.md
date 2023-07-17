@@ -7,8 +7,20 @@ PhotoShare is a web application built using Django that allows users to create a
 - Create Photo Albums: Users can create separate folders or albums to organize their photos.
 - Upload Photos: Users can upload photos to their albums.
 - View and Manage Albums: Users can view their albums and perform operations like renaming and deleting albums.
-- View and Manage Photos: Users can view, download, and delete individual photos within their albums.
+- View and Manage Photos: Users can view, and delete individual photos within their albums.
 - User-Friendly Interface: The application has a clean and intuitive user interface for easy navigation and interaction.
+
+<h2>Home Page</h2>
+<img width="917" alt="p1" src="https://github.com/hamda288/PhotoAlbum/assets/96077150/f91bcf95-0620-44af-ae15-79b8238a37e3">
+
+<h2>Options</h2>
+<img width="918" alt="Navbar options" src="https://github.com/hamda288/PhotoAlbum/assets/96077150/8eccc65c-f20f-4d4b-8f42-bae6c8c6351b">
+
+<h2>Add Picture</h2>
+<img width="920" alt="add picture" src="https://github.com/hamda288/PhotoAlbum/assets/96077150/dab94774-d56e-473c-9a71-a8802ee1fdd2">
+
+<h2>View Picture</h2>
+<img width="908" alt="View picture" src="https://github.com/hamda288/PhotoAlbum/assets/96077150/7633fb6d-7897-4371-ac53-e3be4dcc053f">
 
 ## Installation
 
